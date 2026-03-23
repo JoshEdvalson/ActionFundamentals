@@ -13,7 +13,9 @@ jobs:
     environment: ${{ inputs.environment }}
     steps:
       - run: |
-          echo "The client secret is: ${{ secrets.CLIENT_SECRET }}"
+          env:
+            CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          echo "The client secret is: $CLIENT_SECRET"
           echo "The app service for the ${{ inputs.environment }} environment is: ${{ vars.APP_SERVICE }}"
           echo "The static website for the ${{ inputs.environment }} environment is: ${{ vars.STATIC_WEBSITE }}"
           echo "The GDW for the ${{ inputs.environment }} environment is: ${{ vars.GLOBAL_DATA_WAREHOUSE }}"

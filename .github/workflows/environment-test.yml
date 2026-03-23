@@ -7,17 +7,20 @@ on:
         required: true
         type: environment
 env:
-  AZURE_CLIENT_SECRET: ${{ vars.CLIENT_SECRET }}
+  AZURE_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
   AZURE_APP_SERVICE: ${{ vars.APP_SERVICE }}
   AZURE_STATIC_WEBSITE: ${{ vars.STATIC_WEBSITE }}
+  GLOBAL_DATA_WAREHOUSE: ${{ vars.GLOBAL_DATA_WAREHOUSE }}
   
 jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "🎉 The job was triggered by event: ${{ github.event_name }}"
-          echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ."
+          echo "The client secret is: ${{ env.AZURE_CLIENT_SECRET }}"
+          echo "The app service for the ${{ inputs.environment }} is: ${{ env.AZURE_APP_SERVICE }}"
+          echo "The static website for the ${{ inputs.environment }} is: ${{ env.AZURE_STATIC_WEBSITE }}"
+          echo "The GDW for the ${{ inputs.environment }} is: ${{ env.GLOBAL_DATA_WAREHOUSE }}"
 
       - uses: actions/checkout@v6
 

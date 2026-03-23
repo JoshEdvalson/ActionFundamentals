@@ -8,6 +8,17 @@ on:
         type: environment
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "🎉 The job was triggered by event: ${{ github.event_name }}"
+          echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ."
+
+      - uses: actions/checkout@v6
+
+      - name: List files in the repository
+        run: |
+          echo "The repository ${{ github.repository }} contains the following files:"
+          tree
 

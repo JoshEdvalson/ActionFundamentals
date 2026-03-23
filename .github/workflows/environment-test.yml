@@ -18,9 +18,9 @@ jobs:
     steps:
       - run: |
           echo "The client secret is: ${{ env.AZURE_CLIENT_SECRET }}"
-          echo "The app service for the ${{ inputs.environment }} is: ${{ env.AZURE_APP_SERVICE }}"
-          echo "The static website for the ${{ inputs.environment }} is: ${{ env.AZURE_STATIC_WEBSITE }}"
-          echo "The GDW for the ${{ inputs.environment }} is: ${{ env.GLOBAL_DATA_WAREHOUSE }}"
+          echo "The app service for the ${{ inputs.environment }} environment is: ${{ env.AZURE_APP_SERVICE }}"
+          echo "The static website for the ${{ inputs.environment }} environment is: ${{ env.AZURE_STATIC_WEBSITE }}"
+          echo "The GDW for the ${{ inputs.environment }} environment is: ${{ env.GLOBAL_DATA_WAREHOUSE }}"
 
       - uses: actions/checkout@v6
 
